@@ -3,13 +3,22 @@ class PeopleController < ApplicationController
     @people = Person.all
   end
 
-  def create
+  def edit
+    @person = Person.find(params[:id])
   end
 
   def show
+    @person = Person.find(params[:id])
   end
 
   def new
     @person = Person.new
   end
+
+
+
+  private 
+    def person_params
+      params.require(:person).permit(:name, :age, :hair_color, :eye_color, :gender, :alive)
+    end
 end

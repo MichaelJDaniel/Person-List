@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
-  resources: people
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'static_people#home'
+
+  get '/about', to: 'static_people#about'
+
+  resources :people
 end
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
